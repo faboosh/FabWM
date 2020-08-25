@@ -1,5 +1,6 @@
 const x11 = require('x11');
 const {Exposure, PointerMotion} = x11.eventMask;
+const {exec} = require('child_process');
 
 function createClient(err, display) {
     if (!err) {
@@ -37,6 +38,7 @@ function createClient(err, display) {
         X.on('error', function(e) {
           console.log(e);
         });
+        exec('alacritty');
       } else {
         console.log(err);
       }
